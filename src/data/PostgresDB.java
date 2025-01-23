@@ -1,4 +1,4 @@
-package database;
+package data;
 
 public class PostgresDB {
 }
