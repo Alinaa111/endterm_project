@@ -1,22 +1,21 @@
 package models;
 
-import java.util.Map;
+import java.util.List;
 
 public class Recipe {
     private int id;
     private String name;
     private int categoryId;
-    private Map<String, Integer> ingredients;
+    private List<Ingredients> ingredients;
     private String instructions;
 
     public Recipe() {}
 
-    public Recipe(int id, String name, Map<String, Integer> ingredients, String instructions) {
-        this.id = id;
-        this.name = name;
-        this.categoryId = categoryId;
-        this.instructions = instructions;
-        this.ingredients = ingredients;
+    public Recipe(int id, String name, List<Ingredients> ingredients, String instructions) {
+        setId(id);
+        setName(name);
+        setIngredients(ingredients);
+        setInstructions(instructions);
     }
 
     public int getId() {
@@ -40,10 +39,10 @@ public class Recipe {
         this.categoryId = categoryId;
     }
 
-    public Map<String, Integer> getIngredients() {
+    public List<Ingredients> getIngredients() {
         return ingredients;
     }
-    public void setIngredients(Map<String, Integer> ingredients) {
+    public void setIngredients(List<Ingredients> ingredients) {
         this.ingredients = ingredients;
     }
 
