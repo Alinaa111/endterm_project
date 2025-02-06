@@ -8,6 +8,11 @@ public class Ingredient {
 
     public Ingredient() {}
 
+    public Ingredient(String name, int quantity) {
+        setName(name);
+        setQuantity(quantity);
+    }
+
     public Ingredient(int id, String name, int quantity, String unit) {
         setId(id);
         setName(name);
