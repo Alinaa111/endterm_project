@@ -6,16 +6,18 @@ public class Recipe {
     private int id;
     private String name;
     private int categoryId;
-    private List<Ingredients> ingredients;
     private String instructions;
+    private List<Ingredient> ingredients;
+
 
     public Recipe() {}
 
-    public Recipe(int id, String name, List<Ingredients> ingredients, String instructions) {
+    public Recipe(int id, String name, int categoryId, String instructions, List<Ingredient> ingredients) {
         setId(id);
         setName(name);
-        setIngredients(ingredients);
+        setCategoryId(categoryId);
         setInstructions(instructions);
+        setIngredients(ingredients);
     }
 
     public int getId() {
@@ -39,10 +41,10 @@ public class Recipe {
         this.categoryId = categoryId;
     }
 
-    public List<Ingredients> getIngredients() {
+    public List<Ingredient> getIngredients() {
         return ingredients;
     }
-    public void setIngredients(List<Ingredients> ingredients) {
+    public void setIngredients(List<Ingredient> ingredients) {
         this.ingredients = ingredients;
     }
 
