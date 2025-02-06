@@ -1,14 +1,14 @@
 package models;
 
-public class Ingredients {
+public class Ingredient {
     private int id;
     private String name;
     private int quantity;
     private String unit;
 
-    public Ingredients() {}
+    public Ingredient() {}
 
-    public Ingredients(int id, String name, int quantity, String unit) {
+    public Ingredient(int id, String name, int quantity, String unit) {
         setId(id);
         setName(name);
         setQuantity(quantity);
