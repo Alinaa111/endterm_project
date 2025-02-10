@@ -34,6 +34,16 @@ public class FoodOrderApplication {
             int portions = scanner.nextInt();
 
             recipeController.displayRecipeDetails(recipeChoice, portions);
+
+            System.out.print("\nWould you like to view another recipe? (yes/no): ");
+            scanner.nextLine();
+            String continueChoice = scanner.nextLine().trim().toLowerCase();
+
+            if (continueChoice.equals("no")) {
+                System.out.println("Thank you for using the Food Order Application. Goodbye!");
+                System.out.println("P.S. Nanmen zhe toyasyn");
+                break;
+            }
         }
 
         scanner.close();
