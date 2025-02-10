@@ -37,6 +37,7 @@ public class RecipeController implements IRecipeController {
             return;
         }
 
+        int totalPrice = recipe.getPrice() * portions;
         System.out.println("\nRecipe: " + recipe.getName());
         System.out.println("Instructions: " + recipe.getInstructions());
         System.out.println("Ingredients for " + portions + " portion(s):");
@@ -45,5 +46,8 @@ public class RecipeController implements IRecipeController {
             int scaledQuantity = ingredient.getQuantity() * portions;
             System.out.println("- " + ingredient.getName() + ": " + scaledQuantity);
         }
+
+        System.out.println("Price for " + portions + " portions: " + totalPrice + " KZT");
+
     }
 }
