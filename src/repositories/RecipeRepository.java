@@ -13,7 +13,7 @@ public class RecipeRepository implements IRecipeRepository {
     @Override
     public List<Recipe> getRecipesByCategory(int categoryId) {
         List<Recipe> recipes = new ArrayList<>();
-        String sql = "SELECT id, name, instructions FROM recipes WHERE category_id = ?";
+        String sql = "SELECT id, name, instructions, price FROM recipes WHERE category_id = ?";
 
         try (Connection conn = PostgresDB.getInstance().getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -26,7 +26,8 @@ public class RecipeRepository implements IRecipeRepository {
                         rs.getString("name"),
                         categoryId,
                         rs.getString("instructions"),
-                        new ArrayList<>() // Ingredients will be fetched separately in getRecipeById()
+                        new ArrayList<>(), // Ingredients will be fetched separately in getRecipeById()
+                        rs.getInt("price")
                 ));
             }
         } catch (SQLException e) {
@@ -37,7 +38,7 @@ public class RecipeRepository implements IRecipeRepository {
 
     @Override
     public Recipe getRecipeById(int recipeId) {
-        String recipeSql = "SELECT id, name, category_id, instructions FROM recipes WHERE id = ?";
+        String recipeSql = "SELECT id, name, category_id, instructions, price FROM recipes WHERE id = ?";
         String ingredientSql = "SELECT name, quantity FROM ingredients WHERE recipe_id = ?";
 
         try (Connection conn = PostgresDB.getInstance().getConnection();
@@ -52,6 +53,7 @@ public class RecipeRepository implements IRecipeRepository {
                 String name = recipeRs.getString("name");
                 int categoryId = recipeRs.getInt("category_id");
                 String instructions = recipeRs.getString("instructions");
+                int price = recipeRs.getInt("price");
 
                 // Fetch ingredients
                 List<Ingredient> ingredients = new ArrayList<>();
@@ -64,7 +66,7 @@ public class RecipeRepository implements IRecipeRepository {
                     ));
                 }
 
-                return new Recipe(id, name, categoryId, instructions, ingredients);
+                return new Recipe(id, name, categoryId, instructions, ingredients, price);
             }
         } catch (SQLException e) {
             e.printStackTrace();
