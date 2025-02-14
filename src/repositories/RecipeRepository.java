@@ -60,7 +60,10 @@ public class RecipeRepository implements IRecipeRepository {
                 ingredientStmt.setInt(1, recipeId);
                 ResultSet ingredientRs = ingredientStmt.executeQuery();
                 while (ingredientRs.next()) {
-                    ingredients.add(new Ingredient(ingredientRs.getString("name"), ingredientRs.getInt("quantity")));
+                    ingredients.add(new Ingredient(
+                            ingredientRs.getString("name"),
+                            ingredientRs.getInt("quantity")
+                    ));
                 }
 
                 return new Recipe(id, name, categoryId, instructions, ingredients, price);

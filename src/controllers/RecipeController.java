@@ -19,7 +19,9 @@ public class RecipeController implements IRecipeController {
         }
 
         System.out.println("Available Recipes:");
-        recipes.forEach(recipe -> System.out.println(recipe.getId() + ". " + recipe.getName()));
+        for (Recipe recipe : recipes) {
+            System.out.println(recipe.getId() + ". " + recipe.getName());
+        }
     }
 
     @Override
