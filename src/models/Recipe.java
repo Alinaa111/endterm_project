@@ -22,8 +22,6 @@ public class Recipe {
         setPrice(price);
     }
 
-    public Recipe(int id, String name, int categoryId, String instructions, int price) {
-    }
 
     public int getId() {
         return id;
