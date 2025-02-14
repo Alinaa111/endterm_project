@@ -26,7 +26,7 @@ public class RecipeRepository implements IRecipeRepository {
                         rs.getString("name"),
                         categoryId,
                         rs.getString("instructions"),
-                        new ArrayList<>(), // Ingredients will be fetched separately in getRecipeById()
+                        new ArrayList<>(),
                         rs.getInt("price")
                 ));
             }
@@ -55,7 +55,7 @@ public class RecipeRepository implements IRecipeRepository {
                 String instructions = recipeRs.getString("instructions");
                 int price = recipeRs.getInt("price");
 
-                // Fetch ingredients
+
                 List<Ingredient> ingredients = new ArrayList<>();
                 ingredientStmt.setInt(1, recipeId);
                 ResultSet ingredientRs = ingredientStmt.executeQuery();
@@ -71,8 +71,4 @@ public class RecipeRepository implements IRecipeRepository {
         return null;
     }
 
-    @Override
-    public List<Ingredient> getIngredientsByRecipeId(int recipeId) {
-        return List.of();
-    }
 }

@@ -22,10 +22,6 @@ public class RecipeController implements IRecipeController {
         recipes.forEach(recipe -> System.out.println(recipe.getId() + ". " + recipe.getName()));
     }
 
-    @Override
-    public void displayRecipeByCategory(int categoryId) {
-
-    }
 
     @Override
     public void displayRecipeDetails(int recipeId, int portions) {
