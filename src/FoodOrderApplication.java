@@ -39,7 +39,7 @@ public class FoodOrderApplication {
             scanner.nextLine();
             String continueChoice = scanner.nextLine().trim().toLowerCase();
 
-            if (continueChoice.equals("no")) {
+            if (("no".equalsIgnoreCase(continueChoice))) {
                 System.out.println("Thank you for using the Food Order Application. Goodbye!");
                 System.out.println("P.S. Nanmen zhe toyasyn");
                 break;
